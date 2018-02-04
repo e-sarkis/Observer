@@ -11,6 +11,9 @@ public:
 	void removeObserver(Observer*);
 
 	int getNumObservers() const;
+
+protected:
+	void notify(const Entity&, Event);
 private:
 	std::vector<Observer*> m_observers;
 };
