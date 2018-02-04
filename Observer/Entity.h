@@ -1,8 +1,8 @@
 #pragma once
+#include <string>
 class Entity
 {
 public:
-	Entity();
-	~Entity();
+	std::string name;
 };
 

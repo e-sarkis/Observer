@@ -8,8 +8,5 @@ enum EventID
 class Event
 {
 public:
-	Event();
-	~Event();
-
 	EventID id;
 };
