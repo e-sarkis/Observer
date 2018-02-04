@@ -22,3 +22,12 @@ int Subject::getNumObservers() const
 {
 	return m_observers.size();
 }
+
+void Subject::notify(const Entity &t_entity, Event t_event)
+{
+	// Assumption: Observers do not modify list in onNotify methods
+	for (int i = 0; i < Subject::getNumObservers(); i++)
+	{
+		m_observers[i]->onNotify(t_entity, t_event);
+	}
+}
