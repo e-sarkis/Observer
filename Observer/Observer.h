@@ -6,6 +6,8 @@ class Observer
 {
 public:
 	virtual ~Observer();
-	virtual void onNotify(const Entity& entity, Event event) = 0;
+
+	// Typical params: notification sender (object) and generic “data” param with details.
+	virtual void onNotify(const Entity&, Event) = 0;
 };
 
