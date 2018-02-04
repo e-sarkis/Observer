@@ -112,6 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConcreteObserver.h" />
+    <ClInclude Include="ConcreteSubject.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Observer.h" />
@@ -119,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConcreteObserver.cpp" />
+    <ClCompile Include="ConcreteSubject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Subject.cpp" />
   </ItemGroup>
