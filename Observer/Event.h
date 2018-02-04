@@ -1,5 +1,5 @@
 #pragma once
-enum EventID
+enum class EventID
 {
 	EXAMPLE_ONE,
 	EXAMPLE_TWO
