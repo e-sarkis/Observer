@@ -4,6 +4,6 @@ class GameScoreSubject :
 	public Subject
 {
 public:
-	void notificationExample(const Entity&, Event);
+	void scoreNotification(const Entity&, Event);
 };
 

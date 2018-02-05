@@ -13,7 +13,7 @@ int main()
 	twoPoints.name			= "Entity twoPoints";
 	twoPoints.pointValue	= 2;
 
-	// Subject to be observed
+	// Subject to be observed 
 	GameScoreSubject gameScore;
 
 	// Stats Observer
@@ -27,7 +27,7 @@ int main()
 	gameScore.addObserver(&gameAnnouncer);
 	
 	// NOTIFY OBSERVERS OF EVENT - One Point Gained
-	gameScore.notificationExample(onePoint, Event::POINTS_GAINED);
+	gameScore.scoreNotification(onePoint, Event::POINTS_GAINED);
 
 	// Show difference in stats
 	gameStats.printPoints();
@@ -36,7 +36,7 @@ int main()
 	gameScore.removeObserver(&gameAnnouncer);
 
 	// NOTIFY OBSERVERS OF EVENT - One Point Gained
-	gameScore.notificationExample(twoPoints, Event::POINTS_GAINED);
+	gameScore.scoreNotification(twoPoints, Event::POINTS_GAINED);
 
 	// Show difference in stats
 	gameStats.printPoints();
@@ -46,7 +46,7 @@ int main()
 	gameScore.removeAllObservers();
 
 	// NOTIFY OBSERVERS OF EVENT (Spoiler: there are none) - Two Points Lost
-	gameScore.notificationExample(twoPoints, Event::POINTS_LOST);
+	gameScore.scoreNotification(twoPoints, Event::POINTS_LOST);
 
 	std::cin.get();
 	return 0;
