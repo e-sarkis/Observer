@@ -1,12 +1,6 @@
 #pragma once
-enum class EventID
+enum class Event
 {
 	EXAMPLE_ONE,
 	EXAMPLE_TWO
-};
-
-class Event
-{
-public:
-	EventID id;
 };
