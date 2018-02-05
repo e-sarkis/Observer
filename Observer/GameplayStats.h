@@ -15,4 +15,3 @@ private:
 	void subtractPoints(int);
 	int m_totalPoints = 0;
 };
-

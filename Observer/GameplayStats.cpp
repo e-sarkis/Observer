@@ -8,7 +8,7 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 		addPoints(t_entity.pointValue);
 		break;
 	case Event::POINTS_LOST:
-		addPoints(t_entity.pointValue);
+		subtractPoints(t_entity.pointValue);
 		break;
 	default:
 		// Not a recognized Event, do nothing.
