@@ -5,5 +5,5 @@ class Entity
 {
 public:
 	std::string name;
+	int pointValue;
 };
-

@@ -1,6 +1,6 @@
 #pragma once
 #include "Subject.h"
-class ConcreteSubject :
+class GameScoreSubject :
 	public Subject
 {
 public:

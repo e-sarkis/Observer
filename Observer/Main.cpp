@@ -1,45 +1,45 @@
 #include <iostream>
 
-#include "ConcreteSubject.h"
-#include "ConcreteObserver.h"
+#include "GameScoreSubject.h"
+#include "GameplayStats.h"
+#include "Announcer.h"
 
 int main()
 {
 	// Entities
-	Entity entity1, entity2;
-	entity1.name = "EntityA";
-	entity2.name = "EntityB";
-	// Events
-	Event event1 = Event::EXAMPLE_ONE;
-	Event event2 = Event::EXAMPLE_TWO;
+	Entity onePoint, twoPoints;
+	onePoint.name			= "Entity onePoint";
+	onePoint.pointValue		= 1;
+	twoPoints.name			= "Entity twoPoints";
+	twoPoints.pointValue	= 2;
 
 	// Subject to be observed
-	ConcreteSubject subject;
+	GameScoreSubject gameScore;
 
 	// First Observer
-	ConcreteObserver observer1;
+	GameplayStats gameStats;
 	// Second Observer
-	ConcreteObserver observer2;
+	Announcer gameAnnouncer;
 
-	// Add first Observer
-	subject.addObserver(&observer1);
-	// Add second Observer
-	subject.addObserver(&observer2);
+	// Add GameplayStats Observer
+	gameScore.addObserver(&gameStats);
+	// Add Announcer Observer
+	gameScore.addObserver(&gameAnnouncer);
+	
+	// NOTIFY OBSERVERS OF EVENT - One Point Gained
+	gameScore.notificationExample(onePoint, Event::POINTS_GAINED);
 
-	// NOTIFY OBSERVERS OF EVENT
-	subject.notificationExample(entity1, event1);
+	// Remove gameAnnouncer Observer
+	gameScore.removeObserver(&gameAnnouncer);
 
-	// Remove second Observer
-	subject.removeObserver(&observer2);
-
-	// NOTIFY OBSERVERS OF EVENT
-	subject.notificationExample(entity2, event2);
+	// NOTIFY OBSERVERS OF EVENT - One Point Gained
+	gameScore.notificationExample(twoPoints, Event::POINTS_GAINED);
 
 	// Clear subject of Observers
-	subject.removeAllObservers();
+	gameScore.removeAllObservers();
 
-	// NOTIFY OBSERVERS OF EVENT (Spoiler: there are none)
-	subject.notificationExample(entity2, event2);
+	// NOTIFY OBSERVERS OF EVENT (Spoiler: there are none) - Two Points Lost
+	gameScore.notificationExample(twoPoints, Event::POINTS_LOST);
 
 	std::cin.get();
 	return 0;

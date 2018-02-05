@@ -111,16 +111,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ConcreteObserver.h" />
-    <ClInclude Include="ConcreteSubject.h" />
+    <ClInclude Include="Announcer.h" />
+    <ClInclude Include="GameScoreSubject.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="GameplayStats.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Subject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConcreteObserver.cpp" />
-    <ClCompile Include="ConcreteSubject.cpp" />
+    <ClCompile Include="Announcer.cpp" />
+    <ClCompile Include="GameScoreSubject.cpp" />
+    <ClCompile Include="GameplayStats.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Subject.cpp" />
   </ItemGroup>

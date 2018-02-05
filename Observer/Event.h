@@ -1,6 +1,6 @@
 #pragma once
 enum class Event
 {
-	EXAMPLE_ONE,
-	EXAMPLE_TWO
+	POINTS_GAINED,
+	POINTS_LOST
 };
