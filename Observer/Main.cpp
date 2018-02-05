@@ -16,9 +16,9 @@ int main()
 	// Subject to be observed
 	GameScoreSubject gameScore;
 
-	// First Observer
+	// Stats Observer
 	GameplayStats gameStats;
-	// Second Observer
+	// Announcer Observer
 	Announcer gameAnnouncer;
 
 	// Add GameplayStats Observer
@@ -29,11 +29,18 @@ int main()
 	// NOTIFY OBSERVERS OF EVENT - One Point Gained
 	gameScore.notificationExample(onePoint, Event::POINTS_GAINED);
 
+	// Show difference in stats
+	gameStats.printPoints();
+
 	// Remove gameAnnouncer Observer
 	gameScore.removeObserver(&gameAnnouncer);
 
 	// NOTIFY OBSERVERS OF EVENT - One Point Gained
 	gameScore.notificationExample(twoPoints, Event::POINTS_GAINED);
+
+	// Show difference in stats
+	gameStats.printPoints();
+
 
 	// Clear subject of Observers
 	gameScore.removeAllObservers();

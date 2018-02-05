@@ -13,6 +13,6 @@ public:
 private:
 	void addPoints(int);
 	void subtractPoints(int);
-	int m_totalPoints;
+	int m_totalPoints = 0;
 };
 
