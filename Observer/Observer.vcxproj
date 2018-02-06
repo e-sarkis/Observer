@@ -116,6 +116,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GameplayStats.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Subject.h" />
   </ItemGroup>
@@ -124,6 +125,7 @@
     <ClCompile Include="GameScoreSubject.cpp" />
     <ClCompile Include="GameplayStats.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Subject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

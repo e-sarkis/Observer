@@ -16,7 +16,6 @@ public:
 	void removeAllObservers();
 	// Return the total number of Observers observing this Subject
 	int getNumObservers() const;
-protected:
 	// Notify all Observers in Observers Collection of given Event
 	void notify(const Entity&, Event);
 private:

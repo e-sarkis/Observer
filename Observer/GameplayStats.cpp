@@ -4,12 +4,6 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 {
 	switch (t_event)
 	{
-	case Event::POINTS_GAINED:
-		addPoints(t_entity.pointValue);
-		break;
-	case Event::POINTS_LOST:
-		subtractPoints(t_entity.pointValue);
-		break;
 	default:
 		// Not a recognized Event, do nothing.
 		break;
@@ -17,17 +11,32 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 	std::cout << std::endl;
 }
 
-void GameplayStats::printPoints()
+void GameplayStats::onNotify(const Monster& t_monster, Event t_event)
 {
-	std::cout << "Total Points: " << m_totalPoints << std::endl;
+	switch (t_event)
+	{
+	case Event::MONSTER_DIED:
+		addMonstersKilled(1);
+		addXP(t_monster.getXPValue());
+		break;
+	default:
+		// Not a recognized Event, do nothing.
+		break;
+	}
 }
 
-void GameplayStats::addPoints(int p_points)
+void GameplayStats::printStats()
 {
-	m_totalPoints += p_points;
+	std::cout << "Monsters Killed: " << m_totalMonstersKilled << std::endl;
+	std::cout << "XP Gained: " << m_totalXPGained << std::endl;
 }
 
-void GameplayStats::subtractPoints(int p_points)
+void GameplayStats::addMonstersKilled(int p_points)
 {
-	m_totalPoints -= p_points;
+	m_totalMonstersKilled += p_points;
+}
+
+void GameplayStats::addXP(int t_xp)
+{
+	m_totalXPGained += t_xp;
 }

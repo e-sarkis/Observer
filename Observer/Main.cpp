@@ -6,47 +6,47 @@
 
 int main()
 {
-	// Entities
-	Entity onePoint, twoPoints;
-	onePoint.name			= "Entity onePoint";
-	onePoint.pointValue		= 1;
-	twoPoints.name			= "Entity twoPoints";
-	twoPoints.pointValue	= 2;
-
-	// Subject to be observed 
-	GameScoreSubject gameScore;
+	// Monster objects (subclass of Entity)
+	Monster beholder("Beholder", 4, 100);
+	Monster mummy("Mummy", 2, 50);
 
 	// Stats Observer
 	GameplayStats gameStats;
 	// Announcer Observer
 	Announcer gameAnnouncer;
 
-	// Add GameplayStats Observer
-	gameScore.addObserver(&gameStats);
+	// Add GameplayStats Observer to Monsters
+	beholder.subject.addObserver(&gameStats);
+	mummy.subject.addObserver(&gameStats);
 	// Add Announcer Observer
-	gameScore.addObserver(&gameAnnouncer);
+	beholder.subject.addObserver(&gameAnnouncer);
+	mummy.subject.addObserver(&gameAnnouncer);
+
+	// Show initial stats
+	gameStats.printStats();
 	
-	// NOTIFY OBSERVERS OF EVENT - One Point Gained
-	gameScore.scoreNotification(onePoint, Event::POINTS_GAINED);
+	// NOTIFY OBSERVERS OF EVENT - Beholder Damaged
+	beholder.takeDamage(1);
+	// NOTIFY OBSERVERS OF EVENT - Mummy Killed
+	mummy.takeDamage(2);
 
 	// Show difference in stats
-	gameStats.printPoints();
+	gameStats.printStats();
 
-	// Remove gameAnnouncer Observer
-	gameScore.removeObserver(&gameAnnouncer);
+	// Remove gameAnnouncer Observer from mummy
+	mummy.subject.removeObserver(&gameAnnouncer);
 
-	// NOTIFY OBSERVERS OF EVENT - One Point Gained
-	gameScore.scoreNotification(twoPoints, Event::POINTS_GAINED);
+	// NOTIFY OBSERVERS OF EVENT - Beholder Damaged (and Killed)
+	beholder.takeDamage(3);
 
-	// Show difference in stats
-	gameStats.printPoints();
-
+	// Show difference in stats (there are none)
+	gameStats.printStats();
 
 	// Clear subject of Observers
-	gameScore.removeAllObservers();
+	beholder.subject.removeAllObservers();
 
-	// NOTIFY OBSERVERS OF EVENT (Spoiler: there are none) - Two Points Lost
-	gameScore.scoreNotification(twoPoints, Event::POINTS_LOST);
+	// NOTIFY OBSERVERS OF EVENT (Spoiler: there are none) - Beholder Damaged (and Killed)
+	beholder.takeDamage(3);
 
 	std::cin.get();
 	return 0;

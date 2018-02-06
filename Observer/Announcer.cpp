@@ -7,11 +7,11 @@ void Announcer::onNotify(const Entity& t_entity, Event t_event)
 	std::cout << "Entity Name:\t\t" << t_entity.name << std::endl;
 	switch (t_event)
 	{
-	case Event::POINTS_GAINED:
-		std::cout << "POINTS_GAINED occured!" << std::endl;
+	case Event::MONSTER_DAMAGED:
+		std::cout << t_entity.name << " was damaged!" << std::endl;
 		break;
-	case Event::POINTS_LOST:
-		std::cout << "POINTS_LOST occured!" << std::endl;
+	case Event::MONSTER_DIED:
+		std::cout << t_entity.name << " was killed!" << std::endl;
 		break;
 	default:
 		// Not a recognized Event, do nothing.

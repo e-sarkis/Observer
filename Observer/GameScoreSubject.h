@@ -6,4 +6,3 @@ class GameScoreSubject :
 public:
 	void scoreNotification(const Entity&, Event);
 };
-
