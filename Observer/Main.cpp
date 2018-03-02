@@ -18,7 +18,7 @@ int main()
 	// Add GameplayStats Observer to Monsters
 	beholder.subject.addObserver(&gameStats);
 	mummy.subject.addObserver(&gameStats);
-	// Add Announcer Observer
+	// Add Announcer Observer to Monsters
 	beholder.subject.addObserver(&gameAnnouncer);
 	mummy.subject.addObserver(&gameAnnouncer);
 

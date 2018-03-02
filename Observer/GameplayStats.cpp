@@ -4,20 +4,9 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 {
 	switch (t_event)
 	{
-	default:
-		// Not a recognized Event, do nothing.
-		break;
-	}
-	std::cout << std::endl;
-}
-
-void GameplayStats::onNotify(const Monster& t_monster, Event t_event)
-{
-	switch (t_event)
-	{
 	case Event::MONSTER_DIED:
 		addMonstersKilled(1);
-		addXP(t_monster.getXPValue());
+		addXP(t_entity.xpValue);
 		break;
 	default:
 		// Not a recognized Event, do nothing.

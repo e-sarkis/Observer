@@ -12,8 +12,6 @@ public:
 	void printStats();
 	// Notification for recieving Entity objects
 	virtual void onNotify(const Entity&, Event);
-	// Notification for recieving Monster objects
-	virtual void onNotify(const Monster&, Event);
 private:
 	void addMonstersKilled(int);
 	void addXP(int);

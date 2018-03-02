@@ -13,6 +13,5 @@ public:
 
 private:
 	int m_hp;
-	int m_xpValue;
 };
 
