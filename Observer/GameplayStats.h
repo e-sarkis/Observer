@@ -13,8 +13,8 @@ public:
 	// Notification for recieving Entity objects
 	virtual void onNotify(const Entity&, Event);
 private:
-	void addMonstersKilled(int);
+	void addMonstersDefeated(int);
 	void addXP(int);
-	int m_totalMonstersKilled = 0;
-	int m_totalXPGained = 0;
+	int _totalMonstersDefeated = 0;
+	int _totalXPGained = 0;
 };

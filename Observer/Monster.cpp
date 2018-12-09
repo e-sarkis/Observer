@@ -1,6 +1,6 @@
 #include "Monster.h"
 
-Monster::Monster(std::string t_name, int t_hp, int t_xpValue) : m_hp(t_hp)
+Monster::Monster(std::string t_name, int t_hp, int t_xpValue) : _hp(t_hp)
 {
 	Entity::name = t_name;
 	Entity::xpValue = t_xpValue;
@@ -8,8 +8,8 @@ Monster::Monster(std::string t_name, int t_hp, int t_xpValue) : m_hp(t_hp)
 
 void Monster::takeDamage(int t_damage)
 {
-	m_hp -= t_damage;
-	if (m_hp <= 0)
+	_hp -= t_damage;
+	if (_hp <= 0)
 	{
 		subject.notify(*this, Event::MONSTER_DIED);
 	} else

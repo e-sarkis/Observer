@@ -5,7 +5,7 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 	switch (t_event)
 	{
 	case Event::MONSTER_DIED:
-		addMonstersKilled(1);
+		addMonstersDefeated(1);
 		addXP(t_entity.xpValue);
 		break;
 	default:
@@ -16,16 +16,18 @@ void GameplayStats::onNotify(const Entity& t_entity, Event t_event)
 
 void GameplayStats::printStats()
 {
-	std::cout << "Monsters Killed: " << m_totalMonstersKilled << std::endl;
-	std::cout << "XP Gained: " << m_totalXPGained << std::endl;
+	std::cout << "Stats:" << std::endl;
+	std::cout << "\tTotal Monsters Vanquished:\t" << _totalMonstersDefeated << std::endl;
+	std::cout << "\tTotal XP:\t\t\t" << _totalXPGained << std::endl;
+	std::cout << std::endl;
 }
 
-void GameplayStats::addMonstersKilled(int p_points)
+void GameplayStats::addMonstersDefeated(int p_points)
 {
-	m_totalMonstersKilled += p_points;
+	_totalMonstersDefeated += p_points;
 }
 
 void GameplayStats::addXP(int t_xp)
 {
-	m_totalXPGained += t_xp;
+	_totalXPGained += t_xp;
 }

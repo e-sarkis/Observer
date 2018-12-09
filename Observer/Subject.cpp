@@ -2,24 +2,24 @@
 
 Subject::~Subject()
 {
-	m_observers.clear();
-	m_observers.shrink_to_fit();
+	_observers.clear();
+	_observers.shrink_to_fit();
 }
 
 void Subject::addObserver(Observer* t_observer)
 {
-	m_observers.push_back(t_observer);
+	_observers.push_back(t_observer);
 }
 
 void Subject::removeObserver(Observer* t_observer)
 {
-	if (m_observers.empty()) return;
+	if (_observers.empty()) return;
 	for (int i = 0; i < Subject::getNumObservers(); i++)
 	{
-		if (m_observers[i] == t_observer)
+		if (_observers[i] == t_observer)
 		{
-			m_observers.erase(m_observers.begin() + i);
-			m_observers.shrink_to_fit();
+			_observers.erase(_observers.begin() + i);
+			_observers.shrink_to_fit();
 			return;
 		}
 	}
@@ -27,13 +27,13 @@ void Subject::removeObserver(Observer* t_observer)
 
 void Subject::removeAllObservers()
 {
-	m_observers.clear();
-	m_observers.shrink_to_fit();
+	_observers.clear();
+	_observers.shrink_to_fit();
 }
 
 int Subject::getNumObservers() const
 {
-	return m_observers.size();
+	return _observers.size();
 }
 
 void Subject::notify(const Entity &t_entity, Event t_event)
@@ -41,6 +41,6 @@ void Subject::notify(const Entity &t_entity, Event t_event)
 	// Assumption: Observers do not modify m_observers in onNotify methods
 	for (int i = 0; i < Subject::getNumObservers(); i++)
 	{
-		m_observers[i]->onNotify(t_entity, t_event);
+		_observers[i]->onNotify(t_entity, t_event);
 	}
 }

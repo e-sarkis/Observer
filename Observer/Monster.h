@@ -12,6 +12,6 @@ public:
 	int getXPValue() const;
 
 private:
-	int m_hp;
+	int _hp;
 };
 

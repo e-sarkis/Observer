@@ -19,6 +19,6 @@ public:
 	// Notify all Observers in Observers Collection of given Event
 	void notify(const Entity&, Event);
 private:
-	std::vector<Observer*> m_observers; // Collection of Observers to recieve notifications
+	std::vector<Observer*> _observers; // Collection of Observers to recieve notifications
 };
 
